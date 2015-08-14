@@ -6,7 +6,7 @@ gem 'rails', '4.1.8'
 # Use mysql as the database for Active Record
 gem 'mysql2', '0.3.19'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 5.0.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -39,6 +39,10 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # required UI gems
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
+gem 'foundation-rails'
+group :development do
+  gem 'rails_layout'
+end
 
 # user authorization gems
 # gem 'therubyracer' -- not needed on windows, will use whatever runtime it can find, i.e execjs, nodejs
