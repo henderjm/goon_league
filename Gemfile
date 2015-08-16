@@ -48,7 +48,6 @@ end
 # gem 'therubyracer' -- not needed on windows, will use whatever runtime it can find, i.e execjs, nodejs
 gem 'devise'
 gem 'omniauth'
-gem 'omniauth-digitalocean'
 gem 'omniauth-twitter'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
