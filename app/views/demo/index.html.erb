@@ -9,16 +9,24 @@
 <div class="row">
 
 	<div class="large-3 columns ">
-		<div class="panel">
-			<a href="#"><img src="http://placehold.it/300x240&text=[img]"/></a>
-		</div>
+		<table summary="EPL Standings">
+			<th colspan="2"><%=@standings['leagueCaption']%></th>
+	 		<th>P</th>
+			<th>Pts</th>
+			<% @standings['standing'].each do |team| %>
+			<tr>
+		 		<td><%= team['position']%></td>>
+		 		<td><%= team['teamName']%></td>>
+		 		<td><%= team['playedGames']%></td>>
+		 		<td><%= team['points']%></td>>
+		  	</tr>
+		  	<% end %>	
+		</table>
 	</div>
 
 	<div class="large-6 columns">
 
 		<div class="row">
-			<div class="large-2 columns small-3"><img src="http://placehold.it/80x80&text=[img]"/>
-			</div>
 			<div class="large-10 columns">
 				<p>
 					<strong>New Transfer!</strong> <br/>

@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require foundation
+//= require demo
 //= require_tree .
 $(function() {
   $(document).foundation();
