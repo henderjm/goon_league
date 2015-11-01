@@ -14,10 +14,10 @@
       <th>Pts</th>
       <% @standings['standing'].each do |team| %>
           <tr>
-            <td><%= team['position']%></td>>
-            <td><%= team['teamName']%></td>>
-            <td><%= team['playedGames']%></td>>
-            <td><%= team['points']%></td>>
+            <td><%= team['position']%></td>
+            <td><%= team['teamName']%></td>
+            <td><%= team['playedGames']%></td>
+            <td><%= team['points']%></td>
           </tr>
       <% end %>
     </table>
@@ -35,9 +35,9 @@
             <%= f.submit %>
         <% end %>
         <% @posts.each do |post|%>
-            <%= User.find(post.user).email %>
             <div>
-                <%= post.text %>
+              <%= User.find(post.user).username+':'%>
+              <%= post.text %>
             </div>
         <% end %>
       </div>

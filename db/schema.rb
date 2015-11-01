@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151026174039) do
+ActiveRecord::Schema.define(version: 20151101001552) do
 
   create_table "comments", force: true do |t|
     t.integer  "commenter"
@@ -33,14 +33,17 @@ ActiveRecord::Schema.define(version: 20151026174039) do
 
   create_table "posts", force: true do |t|
     t.integer  "user_id"
-    t.string   "text"
+    t.string   "text",       default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
+    t.string   "alias",                  default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -53,9 +56,11 @@ ActiveRecord::Schema.define(version: 20151026174039) do
     t.datetime "updated_at",                          null: false
     t.string   "provider"
     t.string   "uid"
+    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end
