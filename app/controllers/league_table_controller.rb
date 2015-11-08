@@ -1,0 +1,2 @@
+class LeagueTableController < ApplicationController
+end
