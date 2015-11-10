@@ -6,7 +6,7 @@ class DemoController < ApplicationController
 
   def index
     if user_signed_in?
-      @posts = Post.friends_posts_reg current_user.id
+      @leagues_with_posts = League.includes(:posts)
       url = URI.parse('http://api.football-data.org/alpha/soccerseasons/398/leagueTable')
       req = Net::HTTP::Get.new(url.to_s)
       res = Net::HTTP.start(url.host, url.port) {|http|

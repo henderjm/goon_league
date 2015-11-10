@@ -34,10 +34,13 @@
             <%= f.text_area :text, :class => 'expand' %>
             <%= f.submit %>
         <% end %>
-        <% @posts.each do |post|%>
+        <% @leagues_with_posts.each do |league_with_posts|%>
             <div>
-              <%= User.find(post.user).username+':'%>
-              <%= post.text %>
+              <% if league_with_posts.posts.blank? %>
+              <% else %>
+                <%= league_with_posts.post.username + ':'%>
+                <%= league_with_posts.post.text %>
+              <% end%>
             </div>
         <% end %>
       </div>

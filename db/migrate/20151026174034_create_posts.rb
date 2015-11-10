@@ -1,11 +1,15 @@
 class CreatePosts < ActiveRecord::Migration
-  def change
+  def up
     create_table :posts do |t|
-      t.integer :user_id
-      t.string :text,     null: false, default: ''
+      t.belongs_to :league, index:true
+      t.string :text, null: false, default: ''
+      t.string :username
 
       t.timestamps
     end
-    add_index :posts, :user_id
+  end
+
+  def down
+    drop_table :posts
   end
 end

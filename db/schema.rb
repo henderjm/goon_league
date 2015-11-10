@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151103230435) do
+ActiveRecord::Schema.define(version: 20151110230906) do
 
   create_table "comments", force: true do |t|
     t.integer  "commenter"
@@ -23,13 +23,28 @@ ActiveRecord::Schema.define(version: 20151103230435) do
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
 
-  create_table "league_tables", force: true do |t|
+  create_table "league_users", id: false, force: true do |t|
+    t.integer "user_id"
+    t.integer "league_id"
+  end
+
+  add_index "league_users", ["user_id", "league_id"], name: "index_league_users_on_user_id_and_league_id", using: :btree
+
+  create_table "leagues", force: true do |t|
     t.string   "name"
+    t.integer  "admin_user"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "league_tables", ["name"], name: "index_league_tables_on_name", using: :btree
+  add_index "leagues", ["name"], name: "index_leagues_on_name", using: :btree
+
+  create_table "leagues_users", id: false, force: true do |t|
+    t.integer "user_id"
+    t.integer "league_id"
+  end
+
+  add_index "leagues_users", ["user_id", "league_id"], name: "index_leagues_users_on_user_id_and_league_id", using: :btree
 
   create_table "players", force: true do |t|
     t.string   "first_name"
@@ -40,13 +55,14 @@ ActiveRecord::Schema.define(version: 20151103230435) do
   end
 
   create_table "posts", force: true do |t|
-    t.integer  "user_id"
+    t.integer  "league_id"
     t.string   "text",       default: "", null: false
+    t.string   "username"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+  add_index "posts", ["league_id"], name: "index_posts_on_league_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
