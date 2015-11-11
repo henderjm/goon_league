@@ -30,17 +30,18 @@
   <div class="large-6 columns">
     <div class="row">
       <div class="large-10 columns">
+        <% @user_leagues.each do |league| %>
+            <%= link_to league.name, :action => 'index', :id => league.id %>
+        <% end %>
         <%= form_for Post.new, url: {:controller => :post, :action => 'create'} do |f| %>
             <%= f.text_area :text, :class => 'expand' %>
+            <%= f.hidden_field :league_id, {value: @selected_league} %>
             <%= f.submit %>
         <% end %>
-        <% @leagues_with_posts.each do |league_with_posts|%>
+        <% @league_with_posts.each do |league_with_posts|%>
             <div>
-              <% if league_with_posts.posts.blank? %>
-              <% else %>
-                <%= league_with_posts.post.username + ':'%>
-                <%= league_with_posts.post.text %>
-              <% end%>
+                <%= "#{league_with_posts.username}:" %>
+                <%= league_with_posts.text %>
             </div>
         <% end %>
       </div>

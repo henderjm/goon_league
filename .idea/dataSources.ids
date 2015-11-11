@@ -17,14 +17,24 @@
       <primary-key name="PRIMARY" columns="id"/>
       <index name="index_comments_on_post_id" unique="false" columns="post_id"/>
     </table>
-    <table name="league_tables" schema="" catalog="goon_league_development" type="TABLE">
+    <table name="league_users" schema="" catalog="goon_league_development" type="TABLE">
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="league_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <index name="index_league_users_on_user_id_and_league_id" unique="false" columns="user_id,league_id"/>
+    </table>
+    <table name="leagues" schema="" catalog="goon_league_development" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="admin_user" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <index name="index_league_tables_on_name" unique="false" columns="name"/>
+      <index name="index_leagues_on_name" unique="false" columns="name"/>
+    </table>
+    <table name="leagues_users" schema="" catalog="goon_league_development" type="TABLE">
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="league_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <index name="index_leagues_users_on_user_id_and_league_id" unique="false" columns="user_id,league_id"/>
     </table>
     <table name="players" schema="" catalog="goon_league_development" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>

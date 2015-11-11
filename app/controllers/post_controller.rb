@@ -2,7 +2,7 @@ class PostController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.user_id = current_user.id if current_user
+    @post.username = current_user.username
     # @post = Post.new(post_params)
     if @post.save
       flash[:notice] = 'unable to publish your post, sorry :('
@@ -13,6 +13,6 @@ class PostController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:user_id, :text)
+    params.require(:post).permit(:league_id, :text, :username)
   end
 end
