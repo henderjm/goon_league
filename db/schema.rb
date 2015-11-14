@@ -23,18 +23,13 @@ ActiveRecord::Schema.define(version: 20151110230906) do
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
 
-  create_table "league_users", id: false, force: true do |t|
-    t.integer "user_id"
-    t.integer "league_id"
-  end
-
-  add_index "league_users", ["user_id", "league_id"], name: "index_league_users_on_user_id_and_league_id", using: :btree
-
   create_table "leagues", force: true do |t|
+    t.string   "encrypted_password", default: "", null: false
+    t.string   "generated_code",     default: ""
     t.string   "name"
     t.integer  "admin_user"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   add_index "leagues", ["name"], name: "index_leagues_on_name", using: :btree
@@ -46,18 +41,11 @@ ActiveRecord::Schema.define(version: 20151110230906) do
 
   add_index "leagues_users", ["user_id", "league_id"], name: "index_leagues_users_on_user_id_and_league_id", using: :btree
 
-  create_table "players", force: true do |t|
-    t.string   "first_name"
-    t.string   "second_name"
-    t.integer  "points",      default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "posts", force: true do |t|
     t.integer  "league_id"
-    t.string   "text",       default: "", null: false
+    t.string   "text",                default: "", null: false
     t.string   "username"
+    t.datetime "remember_created_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -35,6 +35,7 @@ gem 'log4r', '~> 1.1.10'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'bcrypt-ruby', :require => 'bcrypt'
 
 # required UI gems
 gem 'bootstrap-sass', '~> 3.2.0'

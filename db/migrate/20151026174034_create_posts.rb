@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :text, null: false, default: ''
       t.string :username
 
+      t.datetime :remember_created_at # allows for editing tracking
       t.timestamps
     end
   end

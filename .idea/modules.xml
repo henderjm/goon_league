@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/goon_league.iml" filepath="$PROJECT_DIR$/.idea/goon_league.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../simple_cms/.idea/simple_cms.iml" filepath="$PROJECT_DIR$/../simple_cms/.idea/simple_cms.iml" />
     </modules>
   </component>
 </project>
