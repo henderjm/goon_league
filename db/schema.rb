@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151115092523) do
+ActiveRecord::Schema.define(version: 20151115194306) do
 
   create_table "comments", force: true do |t|
     t.integer  "commenter"
@@ -23,14 +23,15 @@ ActiveRecord::Schema.define(version: 20151115092523) do
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
 
-  create_table "league_user_informations", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "league_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "league_users", force: true do |t|
+    t.integer "user_id"
+    t.integer "league_id"
+    t.string  "team_name"
+    t.integer "played"
+    t.integer "points"
   end
 
-  add_index "league_user_informations", ["user_id", "league_id"], name: "index_league_user_informations_on_user_id_and_league_id", using: :btree
+  add_index "league_users", ["user_id", "league_id", "team_name"], name: "index_league_users_on_user_id_and_league_id_and_team_name", using: :btree
 
   create_table "leagues", force: true do |t|
     t.string   "encrypted_password", default: "", null: false
@@ -42,13 +43,6 @@ ActiveRecord::Schema.define(version: 20151115092523) do
   end
 
   add_index "leagues", ["name"], name: "index_leagues_on_name", using: :btree
-
-  create_table "leagues_users", id: false, force: true do |t|
-    t.integer "user_id"
-    t.integer "league_id"
-  end
-
-  add_index "leagues_users", ["user_id", "league_id"], name: "index_leagues_users_on_user_id_and_league_id", using: :btree
 
   create_table "posts", force: true do |t|
     t.integer  "league_id"

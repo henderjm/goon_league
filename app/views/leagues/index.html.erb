@@ -14,9 +14,9 @@
 <div class="large-12 columns ">
   <table summary="User League Metadata">
 
-    <% @user_leagues.each do |league| %>
+    <% @user_leagues.each do |user_league| %>
         <tr>
-          <td>League Name: <%=link_to league.name, {:action => 'league_def', :id => league.id},
+          <td>League Name: <%=link_to user_league.league.name, {:action => 'league_def', :id => user_league.id},
                                       :class => 'action league_def'%></td>
         </tr>
         <th>Team Name</th>

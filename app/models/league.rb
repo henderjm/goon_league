@@ -1,7 +1,7 @@
 class League < ActiveRecord::Base
   attr_accessor :password
 
-  has_and_belongs_to_many :users
+  has_many :league_users
   has_many :posts
 
   validates :password, :confirmation => true #password_confirmation attr

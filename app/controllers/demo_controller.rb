@@ -12,7 +12,7 @@ class DemoController < ApplicationController
       else
         @league_with_posts = League.find(@selected_league).posts
       end
-      @user_leagues = User.find(current_user.id).leagues
+      @user_leagues = User.find(current_user.id).league_users
       url = URI.parse('http://api.football-data.org/alpha/soccerseasons/398/leagueTable')
       req = Net::HTTP::Get.new(url.to_s)
       res = Net::HTTP.start(url.host, url.port) {|http|
