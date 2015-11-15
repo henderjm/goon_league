@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="large-12 columns">
+  <div class="large-40 columns">
     <div class="panel">
       <h1>Goon Fantasy Football</h1>
     </div>
@@ -9,4 +9,24 @@
 <div>
   <%= link_to('Create League', {:action => 'new'}, :class => 'action create')%>
   <%= link_to('Join League', :action => 'join', :class => 'action join')%>
+</div>
+
+<div class="large-12 columns ">
+  <table summary="User League Metadata">
+
+    <% @user_leagues.each do |league| %>
+        <tr>
+          <td>League Name: <%=link_to league.name, {:action => 'league_def', :id => league.id},
+                                      :class => 'action league_def'%></td>
+        </tr>
+        <th>Team Name</th>
+        <th>P</th>
+        <th>Pts</th>
+        <tr>
+          <td>Dummy User Team Name</td>
+          <td>5</td>
+          <td>101</td>
+        </tr>
+    <% end %>
+  </table>
 </div>

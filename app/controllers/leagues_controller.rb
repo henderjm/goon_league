@@ -2,6 +2,8 @@ require 'securerandom'
 class LeaguesController < ApplicationController
 
   def index
+    @user_leagues = User.find(current_user.id).leagues
+
   end
 
   def new
@@ -14,7 +16,6 @@ class LeaguesController < ApplicationController
     @league.generated_code = SecureRandom.hex
     if @league.save
       current_user.leagues << @league
-      @league.users << current_user
       flash[:notice] = "League created successfully"
       redirect_to(:controller => 'demo', :action => 'index')
     else
@@ -24,6 +25,10 @@ class LeaguesController < ApplicationController
   end
 
   def join
+
+  end
+
+  def league_def
 
   end
 
