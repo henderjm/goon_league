@@ -46,9 +46,8 @@ ActiveRecord::Schema.define(version: 20151115194306) do
 
   create_table "posts", force: true do |t|
     t.integer  "league_id"
-    t.string   "text",                default: "", null: false
+    t.string   "text",       default: "", null: false
     t.string   "username"
-    t.datetime "remember_created_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

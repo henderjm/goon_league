@@ -19,7 +19,7 @@ class LeaguesController < ApplicationController
       current_user.league_users << league_user
       @league.league_users << league_user
       flash[:notice] = "League created successfully"
-      redirect_to(:controller => 'demo', :action => 'index')
+      redirect_to(:controller => 'demo', :action => 'index', :id => @league.id)
     else
       flash[:notice] = "Error creating league, please try again"
       render('new')

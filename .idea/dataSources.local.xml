@@ -7,5 +7,11 @@
       <schema-pattern>goon_league_development.*</schema-pattern>
       <default-schemas>goon_league_development.*</default-schemas>
     </data-source>
+    <data-source name="MySQL - @localhost" uuid="e99449aa-87cd-4a2f-ab1d-ad5b6004c86a">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>goon_league_development.*</schema-pattern>
+      <default-schemas>goon_league_development.*</default-schemas>
+    </data-source>
   </component>
 </project>
