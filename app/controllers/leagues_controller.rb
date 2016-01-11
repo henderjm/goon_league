@@ -18,16 +18,26 @@ class LeaguesController < ApplicationController
       league_user = LeagueUser.new
       current_user.league_users << league_user
       @league.league_users << league_user
-      flash[:notice] = "League created successfully"
+      flash[:notice] = 'League created successfully'
       redirect_to(:controller => 'demo', :action => 'index', :id => @league.id)
     else
-      flash[:notice] = "Error creating league, please try again"
+      flash[:notice] = 'Error creating league, please try again'
       render('new')
     end
   end
 
   def join
-
+    @league = League.find_league_by_code(params[:code])
+    if @league.blank?
+      flash[:notice] = 'Error joining league, please try again'
+      render('join')
+    else
+      league_user = LeagueUser.new
+      current_user.league_users << league_user
+      @league.first.league_users << league_user
+      flash[:notice] = "Joined #{@league.name} successfully"
+      redirect_to(:controller => 'demo', :action => 'index', :id => @league.id)
+    end
   end
 
   def league_def

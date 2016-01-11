@@ -5,3 +5,15 @@
     </div>
   </div>
 </div>
+
+<div>
+  <%= form_tag url: {:action => 'join'} do  %>
+      <table summary="Join Fantasy League">
+        <tr>
+          <th>Code</th>
+          <td><%= text_field_tag(:code)%></td>
+        </tr>
+      </table>
+      <%= submit_tag('Join League')%>
+  <%end%>
+</div>

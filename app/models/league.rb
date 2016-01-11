@@ -8,6 +8,8 @@ class League < ActiveRecord::Base
   before_save :encrypt_password
   after_save :clear_password
 
+  scope :find_league_by_code, -> (code) { where(:generated_code => code) }
+
   def encrypt_password
     if password.present?
       @salt = BCrypt::Engine.generate_salt
