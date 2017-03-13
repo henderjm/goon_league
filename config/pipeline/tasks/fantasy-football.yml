@@ -1,6 +1,10 @@
 ---
 platform: linux
-image: ff-docker-image
+image_resource:
+  type: docker-image
+  source:
+    repository: cflondonservices/gcp-lifecycle
+    tag: <%= ENV.fecth('OPSMAN_TAG_IMAGE', latest) %>
 inputs:
   - name: git-repo
 outputs:
