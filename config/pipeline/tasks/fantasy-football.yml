@@ -4,7 +4,7 @@ image_resource:
   type: docker-image
   source:
     repository: cflondonservices/gcp-lifecycle
-    tag: <%= ENV.fecth('OPSMAN_TAG_IMAGE', latest) %>
+    tag: <%= ENV.fetch('OPSMAN_TAG_IMAGE', 'latest') %>
 inputs:
   - name: git-repo
 outputs:
