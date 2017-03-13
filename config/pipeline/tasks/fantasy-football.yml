@@ -1,0 +1,17 @@
+---
+platform: linux
+image_resource:
+  type: ff-docker-image
+inputs:
+  - name: git-repo
+outputs:
+  - name: validation
+params:
+run:
+  path: bash
+  args:
+    - -c
+    - |
+     set -e
+     cd git-repo
+     bundle install
